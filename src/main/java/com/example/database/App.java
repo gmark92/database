@@ -8,9 +8,10 @@ public class App {
     public static void main(String[] args) {
         MongoHandler mongoHandler = new MongoHandler();
         mongoHandler.connectToDatabase("test");
+        CustomerComplaintManager manager = new CustomerComplaintManager(mongoHandler);
+        manager.createComplaintsData();
         mongoHandler.printDatabaseStats();
-
-
     }
+
     private static final Logger _logger = LoggerFactory.getLogger(App.class.getName());
 }
