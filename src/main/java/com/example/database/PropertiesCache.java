@@ -1,5 +1,8 @@
 package com.example.database;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
@@ -13,7 +16,7 @@ public class PropertiesCache
     {
         try (InputStream input = this.getClass().getClassLoader().getResourceAsStream("config.properties")) {
             if (input == null) {
-                System.out.println("Sorry, unable to find config.properties");
+                _logger.warn("Sorry, unable to find config.properties");
             }
             configProp.load(input);
         } catch (IOException e) {
@@ -42,4 +45,6 @@ public class PropertiesCache
     public boolean containsKey(String key){
         return configProp.containsKey(key);
     }
+
+    private static final Logger _logger = LoggerFactory.getLogger(PropertiesCache.class.getName());
 }
