@@ -4,12 +4,21 @@ import com.example.database.handler.MongoHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.IOException;
+
 public class App {
     public static void main(String[] args) {
         MongoHandler mongoHandler = new MongoHandler();
-        mongoHandler.connectToDatabase("test");
+        mongoHandler.connectToDatabase("complaints_data");
         CustomerComplaintManager manager = new CustomerComplaintManager(mongoHandler);
-        manager.createComplaintsData();
+        String dataString;
+        try {
+            dataString = manager.readComplaintsDataFromJson();
+            _logger.info("Complaints test data is successfully read");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        manager.createComplaintsDataFromJsonString(dataString);
         mongoHandler.printDatabaseStats();
     }
 
