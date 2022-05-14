@@ -19,6 +19,14 @@ public class App {
             throw new RuntimeException(e);
         }
         manager.createComplaintsDataFromJsonString(dataString);
+
+        try {
+            manager.exportComplaintsToXML("complaints.xml");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        _logger.info("Complaints data is successfully exported to XML");
+
         mongoHandler.printDatabaseStats();
     }
 
