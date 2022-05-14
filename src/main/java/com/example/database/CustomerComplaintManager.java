@@ -25,7 +25,7 @@ import static com.mongodb.client.model.Filters.ne;
 
 public class CustomerComplaintManager {
     public CustomerComplaintManager (String connectionString, String databaseName){
-        mongoClient = MongoClients.create(connectionString);
+        MongoClient mongoClient = MongoClients.create(connectionString);
         mongoDatabase = mongoClient.getDatabase(databaseName);
     }
 
@@ -47,14 +47,15 @@ public class CustomerComplaintManager {
     public void exportComplaintsToXML(String fileName) throws IOException {
         MongoCollection<Document> complaints = mongoDatabase.getCollection(COLLECTION_NAME);
         FindIterable<Document> allComplaints = complaints.find();
-        Iterator allComplaintsIterator = allComplaints.iterator();
         StringBuilder complaintsSB = new StringBuilder();
-        complaintsSB.append("{\"complaints\" : [");
-        while(allComplaintsIterator.hasNext()){
-            Document complaint = (Document) allComplaintsIterator.next();
-            complaintsSB.append(complaint.toJson());
-            if (allComplaintsIterator.hasNext()) {
-                complaintsSB.append(",");
+        try (MongoCursor<Document> allComplaintsIterator = allComplaints.cursor()) {
+            complaintsSB.append("{\"complaints\" : [");
+            while (allComplaintsIterator.hasNext()) {
+                Document complaint = allComplaintsIterator.next();
+                complaintsSB.append(complaint.toJson());
+                if (allComplaintsIterator.hasNext()) {
+                    complaintsSB.append(",");
+                }
             }
         }
         complaintsSB.append("]}");
@@ -76,6 +77,5 @@ public class CustomerComplaintManager {
     }
 
     private final String COLLECTION_NAME = "complaints";
-    private final MongoClient mongoClient;
     private final MongoDatabase mongoDatabase;
 }
