@@ -3,7 +3,7 @@
     {
       "customer_name":"John Smith",
       "purchase_date":"2022-05-13T18:36:05.659+00:00",
-      "status ":"OPEN",
+      "status":"OPEN",
       "purchased_items":[
         {
           "name":"phone case"
@@ -16,7 +16,7 @@
     {
       "customer_name":"Jimmy Little",
       "purchase_date":"2022-05-12T18:36:05.659+00:00",
-      "status ":"CLOSED",
+      "status":"CLOSED",
       "purchased_items":[
         {
           "name":"laptop"
@@ -32,7 +32,7 @@
     {
       "customer_name":"Timmy the Big",
       "purchase_date":"2011-06-12T22:36:05.659+00:00",
-      "status ":"PENDING",
+      "status":"PENDING",
       "purchased_items":[
         {
           "name":"ferrari (matchbox)"
@@ -42,7 +42,7 @@
     {
       "customer_name":"Scarface",
       "purchase_date":"1983-12-24T00:00:00.000+00:00",
-      "status ":"CLOSED",
+      "status":"CLOSED",
       "purchased_items":[
 
       ]
@@ -50,7 +50,7 @@
     {
       "customer_name":"Mulan",
       "purchase_date":"1998-12-24T00:00:00.000+00:00",
-      "status ":"OPEN",
+      "status":"OPEN",
       "purchased_items":[
         {
           "name":"bow"
@@ -60,7 +60,7 @@
     {
       "customer_name":"Aladdin",
       "purchase_date":"1992-12-24T00:00:00.000+00:00",
-      "status ":"CLOSED",
+      "status":"CLOSED",
       "purchased_items":[
         {
           "name":"magic carpet"
@@ -73,7 +73,7 @@
     {
       "customer_name":"Tarzan",
       "purchase_date":"1999-12-24T00:00:00.000+00:00",
-      "status ":"PENDING",
+      "status":"PENDING",
       "purchased_items":[
         {
           "name":"clothes"
@@ -83,7 +83,7 @@
     {
       "customer_name":"Simba",
       "purchase_date":"1994-12-24T00:00:00.000+00:00",
-      "status ":"OPEN",
+      "status":"OPEN",
       "purchased_items":[
 
       ]
@@ -91,7 +91,7 @@
     {
       "customer_name":"Quasimodo",
       "purchase_date":"1996-11-11T00:00:00.000+00:00",
-      "status ":"CLOSED",
+      "status":"CLOSED",
       "purchased_items":[
         {
           "name":"bell"
@@ -104,7 +104,7 @@
     {
       "customer_name":"Pinocchio",
       "purchase_date":"1940-10-03T12:11:56.000+00:00",
-      "status ":"PENDING",
+      "status":"PENDING",
       "purchased_items":[
         {
           "name":"lie detector"
